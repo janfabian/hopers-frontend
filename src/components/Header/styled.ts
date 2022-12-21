@@ -82,6 +82,7 @@ export const ProfileIcon = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 0 10px;
 `;
 
 export const ButtonContainer = styled.div<{ isMobile: boolean }>`
