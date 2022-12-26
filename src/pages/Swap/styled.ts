@@ -11,9 +11,8 @@ export const Wrapper = styled.div`
 
 export const MainPart = styled.div`
 	width: 100%;
-	display: grid;
-	grid-template-columns: auto 430px;
-	grid-gap: 30px;
+	display: flex;
+	justify-content: center;
 	padding: 10px;
 	box-sizing: border-box;
 `;
@@ -68,15 +67,18 @@ const expandAnimation = keyframes`
     }
 `;
 
-export const SlippageSelector = styled.div<{ expanded: boolean }>`
+export const SlippageSelector = styled.div<{ expanded: boolean | null }>`
 	width: 100%;
 	overflow: hidden;
 	box-sizing: border-box;
+	height: 0;
 	animation: ${({ expanded }) =>
 		expanded
 			? css`
 					${expandAnimation} 500ms linear forwards
 			  `
+			: expanded === null
+			? null
 			: css`
 					${collapseAnimation} 500ms linear forwards
 			  `};
