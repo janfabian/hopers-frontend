@@ -19,7 +19,7 @@ export const getChainConfig = (config: any): ChainInfo => {
 	const rpcEndpoint: string = config["rpcEndpoint"];
 	const restEndpoint: string = config["restEndpoint"];
 	const addrPrefix: string = config["addressPrefix"];
-	const gasPrice = Number.parseFloat(config["gasPrice"]);
+	// const gasPrice = Number.parseFloat(config["gasPrice"]);
 	const coin = fromMicroDenom(coinMinimalDenom);
 	const coinDenom = coin.toUpperCase();
 
