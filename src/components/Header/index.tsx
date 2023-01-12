@@ -51,6 +51,7 @@ import {
 	EarnIcon,
 	ExploreIcon,
 	HomeIcon,
+	HopersUserIcon,
 	// LaunchpadIcon,
 	MintIcon,
 	NFTMenuIcon,
@@ -73,16 +74,17 @@ const HeaderLinks = [
 	{
 		title: "Swap",
 		icon: SwapIcon,
-		url: "soon",
+		url: "/swap",
+		selectedUrl: ["/swap", "/liquidity"],
 		children: [
 			{
 				title: "Swap",
-				url: "soon",
+				url: "/swap",
 				icon: SwapIcon,
 			},
 			{
 				title: "Liquidity",
-				url: "soon",
+				url: "/liquidity",
 				icon: SwapIcon,
 			},
 		],
@@ -112,24 +114,25 @@ const HeaderLinks = [
 	},
 	{
 		title: "Earn",
-		url: "soon",
+		url: "/bond",
+		selectedUrl: ["/bond", "/stake", "/airdrop"],
 		icon: EarnIcon,
 	},
 	{
 		isDivider: true,
 	},
 	{ title: "Mint", url: "/collections/mint", icon: MintIcon },
+	// {
+	//   title: "Launchpad",
+	//   url: "http://launchpad.hopers.io/",
+	//   icon: LaunchpadIcon,
+	// },
 	{
 		title: "IDO",
 		url: "/ido",
 		icon: ExploreIcon,
 		selectedUrl: ["/ido", "/ido/detail"],
 	},
-	// {
-	//   title: "Launchpad",
-	//   url: "http://launchpad.hopers.io/",
-	//   icon: LaunchpadIcon,
-	// },
 ];
 
 const SocialIcons = [
@@ -439,7 +442,10 @@ const Header: React.FC = () => {
 						<LinkContainer>
 							<HopePriceDisplay />
 							<div style={{ display: "flex", alignItems: "center" }}>
-								<ProfileIcon onClick={() => handleClickLink("/profile")} />
+								{/* <ProfileIcon onClick={() => handleClickLink("/profile")} /> */}
+								<ProfileIcon onClick={() => handleClickLink("/profile")}>
+									<HopersUserIcon />
+								</ProfileIcon>
 								<ToggleThemeButton />
 								<ConnectButton />
 							</div>

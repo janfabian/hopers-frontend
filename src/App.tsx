@@ -29,6 +29,7 @@ import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import "react-slideshow-image/dist/styles.css";
 import { WalletProvider } from "./context/Wallet";
+import { ModalContextProvider } from "./context/ModalContext";
 
 const history = createBrowserHistory();
 
@@ -48,6 +49,7 @@ const GlobalStyle = createGlobalStyle<{ isMobile: boolean }>`
     css`
       *::-webkit-scrollbar {
         width: 5px;
+				height: 5px;
         position: absolute;
       }
 
@@ -122,6 +124,7 @@ function App() {
         <meta name="twitter:image" content="http://hopers.io/SEO.png" />
       </Helmet>
       <ThemeContextProvider>
+				<ModalContextProvider>
         <GlobalStyle isMobile={isMobile} />
         <WalletProvider>
           <RefreshContextProvider>
@@ -150,6 +153,7 @@ function App() {
             </PopoutContextProvider>
           </RefreshContextProvider>
         </WalletProvider>
+				</ModalContextProvider>
       </ThemeContextProvider>
     </main>
   );

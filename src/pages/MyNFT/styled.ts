@@ -47,7 +47,8 @@ export const TokenBalancesWrapper = styled.div`
 `;
 
 export const TokenBalanceItem = styled.div<{ marginBottom?: string }>`
-  width: 180px;
+	width: max-content;
+	min-width: 180px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,7 +56,7 @@ export const TokenBalanceItem = styled.div<{ marginBottom?: string }>`
   margin: 10px;
   border: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  padding: 5px;
+	padding: 10px;
   position: relative;
   background-color: ${({ theme }) => theme.colors.panelBackgroundColor};
   ${({ marginBottom }) =>
@@ -87,16 +88,30 @@ export const CoinIcon = styled.img<{ size?: string }>`
   cursor: pointer;
 `;
 
-export const TokenBalance = styled.div<{ color?: string }>`
+export const TokenBalance = styled.div<{ color?: string; chainName?: string }>`
   font-weight: bold;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+	align-items: flex-start;
+	position: relative;
   ${({ color }) =>
     color &&
     css`
       color: ${color};
     `};
+	${({ chainName }) =>
+		chainName &&
+		css`
+			&::after {
+				content: "${chainName}";
+				/* position: absolute;
+				top: 100%;
+				left: 0; */
+				width: max-content;
+				font-size: 15px;
+				color: #ccc;
+			}
+		`}
 `;
 
 export const MyNftsHeader = styled.div`

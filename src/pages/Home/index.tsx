@@ -291,181 +291,177 @@ const Home: React.FC = () => {
 						</Button>
 						{/* <Button
               style={{ minWidth: isMobile ? "60px" : "" }}
-              colored
-              onClick={() => history.push("/ido")}
+              // onClick={NotifyComingSoon}
+              disabled
             >
+              Swap
+            </Button>
+            <Button
+              style={{ minWidth: isMobile ? "60px" : "" }}
+              onClick={() => history.push("/collections/explore")}
+            >
+              NFT
+            </Button>
+          </ButtonContainer>
+          <Text style={{ marginTop: "10vw" }} fontSize={fontSizes.size2}>
+            <Text fontSize={fontSizes.size1} bold color="#02e296">
               IDO
-            </Button> */}
-						<Button
-							style={{ minWidth: isMobile ? "60px" : "" }}
-							onClick={() => history.push("/collections/explore")}
-						>
-							NFT
-						</Button>
-					</ButtonContainer>
-					<Text style={{ marginTop: "10vw" }} fontSize={fontSizes.size2}>
-						<Text fontSize={fontSizes.size1} bold color="#02e296">
-							IDO
-						</Text>
-						<Text bold margin="0 10px">
-							own the future
-						</Text>
-					</Text>
-					<Text fontSize={fontSizes.size3}>
-						Raise Capital In a Community-Driven Way to empower projects on
-						Cosmos with the ability to distribute tokens and raise liquidity.
-					</Text>
-					<ButtonContainer>
-						<Button
-							colored
-							disabled
-							// onClick={NotifyComingSoon}
-						>
-							Explore
-						</Button>
-						<Button
-							disabled
-							onClick={() => window.open("https://launchpad.hopers.io/")}
-						>
-							Launchpad
-						</Button>
-					</ButtonContainer>
-				</FirstPanel>
-				<SecondPanel>
-					<PanelContent alignItems="flex-start">
-						<Text fontSize={fontSizes.size2}>
-							<Text fontSize={fontSizes.size1} bold color="#02e296">
-								Swap
-							</Text>
-							<Text bold margin="0 10px">
-								anything.
-							</Text>
-						</Text>
-						<Text fontSize={fontSizes.size2} bold>
-							No registration, no hassle.
-						</Text>
-						<Text fontSize={fontSizes.size3}>
-							Swap any token on Juno Chain in seconds, just by connecting your
-							wallet.
-						</Text>
-						<ButtonContainer width="100%">
-							<Button
-								colored
-								// onClick={NotifyComingSoon}
-								disabled
-							>
-								Swap Now
-							</Button>
+            </Text>
+            <Text bold margin="0 10px">
+              own the future
+            </Text>
+          </Text>
+          <Text fontSize={fontSizes.size3}>
+            Raise Capital In a Community-Driven Way to empower projects on
+            Cosmos with the ability to distribute tokens and raise liquidity.
+          </Text>
+          <ButtonContainer>
+						<Button colored onClick={() => history.push("/ido")}>
+              Explore
+            </Button>
+            <Button
+              disabled
+              onClick={() => window.open("https://launchpad.hopers.io/")}
+            >
+              Launchpad
+            </Button>
+          </ButtonContainer>
+        </FirstPanel>
+        <SecondPanel>
+          <PanelContent alignItems="flex-start">
+            <Text fontSize={fontSizes.size2}>
+              <Text fontSize={fontSizes.size1} bold color="#02e296">
+                Swap
+              </Text>
+              <Text bold margin="0 10px">
+                anything.
+              </Text>
+            </Text>
+            <Text fontSize={fontSizes.size2} bold>
+              No registration, no hassle.
+            </Text>
+            <Text fontSize={fontSizes.size3}>
+              Swap any token on Juno Chain in seconds, just by connecting your
+              wallet.
+            </Text>
+            <ButtonContainer width="100%">
+              <Button
+                colored
+                // onClick={NotifyComingSoon}
+                disabled
+              >
+                Swap Now
+              </Button>
 							<Button onClick={() => history.push("/ido")}>IDO</Button>
-						</ButtonContainer>
-					</PanelContent>
-					<StyledImg
-						src="/others/home_background_03.gif"
-						alt=""
-						width="45%"
-						minWidth="250px"
-					/>
-				</SecondPanel>
-				<ThirdPanel background="/others/home_background_02.png">
-					<Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-						<StyledImg
-							src="/characters/character_004.gif"
-							alt=""
-							width="45%"
-							minWidth="250px"
-						/>
-						<PanelContent>
-							<Text fontSize={fontSizes.size2}>
-								<Text fontSize={fontSizes.size1} bold color="#02e296">
-									NFT
-								</Text>
-								<Text bold margin="0 10px">
-									Marketplace.
-								</Text>
-							</Text>
-							<Text fontSize={fontSizes.size3}>
-								Explore all the collections launched exclusively on hopers.io
-							</Text>
-							<ButtonContainer>
-								<Button
-									colored
-									onClick={() => history.push("/collections/explore")}
-								>
-									Explore
-								</Button>
-								<Button
-									onClick={() => window.open("http://launchpad.hopers.io/")}
-								>
-									Launchpad
-								</Button>
-							</ButtonContainer>
-						</PanelContent>
-					</Flex>
-					<PanelContent alignItems="flex-start" width="100%">
-						<Text bold fontSize="30px">
-							NFT STATS
-						</Text>
-						<Flex gap="" width="100%">
-							<NFTStatsItem>
-								<Text>Top Volume 30D</Text>
-								<Text>{highestTradesCollection.collection?.title || ""}</Text>
-								<img
-									src={highestTradesCollection.collection?.logoUrl || ""}
-									alt=""
-								/>
-								<Flex alignItems="center">
-									<CoinIcon alt="" src="/coin-images/ujuno.png" />
-									<Text>{addSuffix(highestTradesCollection.volume)}</Text>
-								</Flex>
-							</NFTStatsItem>
-							<NFTStatsItem>
-								<Text>Highest Sale 30D</Text>
-								<Text>{highestSaleNft.tokenId || ""}</Text>
-								<img src={highestSaleNft.imageUrl || ""} alt="" />
-								<Text>{`$${addSuffix(highestSaleNft.trades)}`}</Text>
-							</NFTStatsItem>
-							<NFTStatsItem>
-								<Text>Mint Live Now</Text>
-								<Text>{mintLiveCollection?.title || ""}</Text>
-								<img src={mintLiveCollection?.logoUrl || ""} alt="" />
-								<Button
-									colored
-									onClick={() => history.push(`/collections/mint`)}
-								>
-									Mint Now
-								</Button>
-							</NFTStatsItem>
-							<NFTStatsItem>
-								<Text>Mint Sold Out</Text>
-								<Text>{mintSoldOutCollection?.title || ""}</Text>
-								<img src={mintSoldOutCollection?.logoUrl || ""} alt="" />
-								<Button
-									colored
-									onClick={() =>
-										history.push(
-											`/collections/marketplace?id=${mintSoldOutCollection.collectionId}`
-										)
-									}
-								>
-									View Collection
-								</Button>
-							</NFTStatsItem>
-						</Flex>
-						<StatisticContainer>
-							<StatisticItem>
-								<StatisticContent>Trades Volume</StatisticContent>
-								<StatisticContent bold>
-									<CoinIcon alt="" src="/coin-images/ujuno.png" />
-									{addSuffix(tradesVolume)}
-								</StatisticContent>
-							</StatisticItem>
-							<StatisticItem>
-								<StatisticContent>Items on Sale</StatisticContent>
-								<StatisticContent bold>
-									{addSuffix(totalItemsOnSale)}
-								</StatisticContent>
-							</StatisticItem>
-							{/* <StatisticItem>
+            </ButtonContainer>
+          </PanelContent>
+          <StyledImg
+            src="/others/home_background_03.gif"
+            alt=""
+            width="45%"
+            minWidth="250px"
+          />
+        </SecondPanel>
+        <ThirdPanel background="/others/home_background_02.png">
+          <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+            <StyledImg
+              src="/characters/character_004.gif"
+              alt=""
+              width="45%"
+              minWidth="250px"
+            />
+            <PanelContent>
+              <Text fontSize={fontSizes.size2}>
+                <Text fontSize={fontSizes.size1} bold color="#02e296">
+                  NFT
+                </Text>
+                <Text bold margin="0 10px">
+                  Marketplace.
+                </Text>
+              </Text>
+              <Text fontSize={fontSizes.size3}>
+                Explore all the collections launched exclusively on hopers.io
+              </Text>
+              <ButtonContainer>
+                <Button
+                  colored
+                  onClick={() => history.push("/collections/explore")}
+                >
+                  Explore
+                </Button>
+                <Button
+                  onClick={() => window.open("http://launchpad.hopers.io/")}
+                >
+                  Launchpad
+                </Button>
+              </ButtonContainer>
+            </PanelContent>
+          </Flex>
+          <PanelContent alignItems="flex-start" width="100%">
+            <Text bold fontSize="30px">
+              NFT STATS
+            </Text>
+            <Flex gap="" width="100%">
+              <NFTStatsItem>
+                <Text>Top Volume 30D</Text>
+                <Text>{highestTradesCollection.collection?.title || ""}</Text>
+                <img
+                  src={highestTradesCollection.collection?.logoUrl || ""}
+                  alt=""
+                />
+                <Flex alignItems="center">
+                  <CoinIcon alt="" src="/coin-images/ujuno.png" />
+                  <Text>{addSuffix(highestTradesCollection.volume)}</Text>
+                </Flex>
+              </NFTStatsItem>
+              <NFTStatsItem>
+                <Text>Highest Sale 30D</Text>
+                <Text>{highestSaleNft.tokenId || ""}</Text>
+                <img src={highestSaleNft.imageUrl || ""} alt="" />
+                <Text>{`$${addSuffix(highestSaleNft.trades)}`}</Text>
+              </NFTStatsItem>
+              <NFTStatsItem>
+                <Text>Mint Live Now</Text>
+                <Text>{mintLiveCollection?.title || ""}</Text>
+                <img src={mintLiveCollection?.logoUrl || ""} alt="" />
+                <Button
+                  colored
+                  onClick={() => history.push(`/collections/mint`)}
+                >
+                  Mint Now
+                </Button>
+              </NFTStatsItem>
+              <NFTStatsItem>
+                <Text>Mint Sold Out</Text>
+                <Text>{mintSoldOutCollection?.title || ""}</Text>
+                <img src={mintSoldOutCollection?.logoUrl || ""} alt="" />
+                <Button
+                  colored
+                  onClick={() =>
+                    history.push(
+                      `/collections/marketplace?id=${mintSoldOutCollection.collectionId}`
+                    )
+                  }
+                >
+                  View Collection
+                </Button>
+              </NFTStatsItem>
+            </Flex>
+            <StatisticContainer>
+              <StatisticItem>
+                <StatisticContent>Trades Volume</StatisticContent>
+                <StatisticContent bold>
+                  <CoinIcon alt="" src="/coin-images/ujuno.png" />
+                  {addSuffix(tradesVolume)}
+                </StatisticContent>
+              </StatisticItem>
+              <StatisticItem>
+                <StatisticContent>Items on Sale</StatisticContent>
+                <StatisticContent bold>
+                  {addSuffix(totalItemsOnSale)}
+                </StatisticContent>
+              </StatisticItem>
+              {/* <StatisticItem>
                 <StatisticContent>Transaction</StatisticContent>
                 <StatisticContent bold>2,95K</StatisticContent>
               </StatisticItem> */}

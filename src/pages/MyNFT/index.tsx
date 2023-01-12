@@ -52,7 +52,7 @@ import Collections, {
 import useMatchBreakpoints from "../../hook/useMatchBreakpoints";
 import { TokenStatus, TokenType, TokenFullName } from "../../types/tokens";
 import usePopoutQuickSwap, { SwapType } from "../../components/Popout";
-import { ChainTypes } from "../../constants/ChainTypes";
+import { ChainConfigs, ChainTypes } from "../../constants/ChainTypes";
 import { Tabs } from "./styled";
 import SearchInputer from "../../components/SearchInputer";
 import ActivityList from "../../components/ActivityList";
@@ -275,7 +275,7 @@ const MyNFT: React.FC = () => {
 
   const handleClickBalanceItem = (tokenType: TokenType) => {
     const tokenStatus = TokenStatus[tokenType];
-    if (!tokenStatus.isIBCCOin) return;
+		if (!tokenStatus.isIBCCoin) return;
     popoutQuickSwap(
       {
         swapType: SwapType.WITHDRAW,
@@ -523,7 +523,7 @@ const MyNFT: React.FC = () => {
             (key) => {
               const denom = TokenType[key];
               const tokenStatus = TokenStatus[denom];
-              if (tokenStatus.isIBCCOin) return null;
+							if (tokenStatus.isIBCCoin) return null;
               const tokenBalance = (balances?.[denom]?.amount || 0) / 1e6;
               const tokenPrice =
                 tokenPrices[denom]?.market_data.current_price?.usd || 0;
@@ -563,10 +563,11 @@ const MyNFT: React.FC = () => {
             (key) => {
               const denom = TokenType[key];
               const tokenStatus = TokenStatus[denom];
-              if (!tokenStatus.isIBCCOin) return null;
+							if (!tokenStatus.isIBCCoin) return null;
               const tokenBalance = (balances?.[denom]?.amount || 0) / 1e6;
               const tokenPrice =
                 tokenPrices[denom]?.market_data.current_price?.usd || 0;
+							const chain = tokenStatus.chain;
               return (
                 <TokenBalanceItem key={denom} marginBottom="20px">
                   <CoinIconWrapper>
@@ -574,7 +575,9 @@ const MyNFT: React.FC = () => {
                       alt=""
                       src={`/coin-images/${denom.replace(/\//g, "")}.png`}
                     />
-                    <TokenBalance>{key}</TokenBalance>
+										<TokenBalance chainName={ChainConfigs[chain].chainName}>
+											{key}
+										</TokenBalance>
                   </CoinIconWrapper>
                   <TokenBalance>
                     {tokenBalance.toLocaleString("en-US", {
