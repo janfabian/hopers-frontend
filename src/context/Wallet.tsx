@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getOfflineSigner } from "@cosmostation/cosmos-client";
 import {
-	ChainInfoList,
 	WalletManagerProvider,
 	WalletType,
 	getChainInfo,
